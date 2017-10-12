@@ -26,7 +26,7 @@ RUN curl -sSL https://releases.hashicorp.com/consul-template/${CONSULTEMPLATE_VE
 # Setup TrueColors (Terminal)
 #-----------------------------------------------------------------------------
 COPY ./rootfs/root/colors/24-bit-color.sh /tmp/24-bit-color.sh
-RUN chmod a+x /tmp/24-bit-color.sh \
+RUN chmod a+x /tmp/24-bit-color.sh; sync \
     && ./tmp/24-bit-color.sh
 
 #-----------------------------------------------------------------------------
