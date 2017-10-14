@@ -18,16 +18,16 @@ RUN mkdir -p /var/lib/consul \
 #-----------------------------------------------------------------------------
 # Install Consul Template Library
 #-----------------------------------------------------------------------------
-RUN curl -sSL https://releases.hashicorp.com/consul-template/${CONSULTEMPLATE_VERSION}/consul-template_${CONSULTEMPLATE_VERSION}_linux_amd64.zip -o /tmp/consul-template.zip \
-    && unzip /tmp/consul-template.zip -d /bin \
-    && rm -f /tmp/consul-template.zip
+RUN curl -sSL https://releases.hashicorp.com/consul-template/${CONSULTEMPLATE_VERSION}/consul-template_${CONSULTEMPLATE_VERSION}_linux_amd64.zip -o /opt/consul-template.zip \
+    && unzip /opt/consul-template.zip -d /bin \
+    && rm -f /opt/consul-template.zip
 
 #-----------------------------------------------------------------------------
 # Setup TrueColors (Terminal)
 #-----------------------------------------------------------------------------
-COPY ./rootfs/root/colors/24-bit-color.sh /tmp/24-bit-color.sh
-RUN chmod a+x /tmp/24-bit-color.sh; sync \
-    && ./tmp/24-bit-color.sh
+COPY ./rootfs/root/colors/24-bit-color.sh /opt/24-bit-color.sh
+RUN chmod a+x /opt/24-bit-color.sh; sync \
+    && ./opt/24-bit-color.sh
 
 #-----------------------------------------------------------------------------
 # Set PORT Docker Container
